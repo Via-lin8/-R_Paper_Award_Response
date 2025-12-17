@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>114年住院醫師醫學會論文評選成果</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Config & Styles -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['system-ui', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    },
+                    colors: {
+                        theme: {
+                            gold: '#FCD34D',
+                            bg: '#0F172A',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background: linear-gradient(to bottom, #0F172A, #1E293B, #0F172A);
+            min-height: 100vh;
+            color: #CBD5E1;
+        }
+
+        /* Animations */
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        .animate-shimmer {
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        .glass-card {
+            background-color: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(252, 211, 77, 0.3);
+        }
+
+        /* Scrollbar styling for textarea */
+        textarea::-webkit-scrollbar {
+            width: 8px;
+        }
+        textarea::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.5); 
+        }
+        textarea::-webkit-scrollbar-thumb {
+            background: #334155; 
+            border-radius: 4px;
+        }
+        textarea::-webkit-scrollbar-thumb:hover {
+            background: #475569; 
+        }
+    </style>
+</head>
+<body class="selection:bg-[#FCD34D] selection:text-[#0F172A] pb-24">
+
+    <!-- Decorative Background -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-[#FCD34D] rounded-full mix-blend-overlay filter blur-[128px] opacity-10"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-[#3B82F6] rounded-full mix-blend-overlay filter blur-[128px] opacity-10"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="relative pt-24 pb-28 px-6 text-center z-10">
+        <div class="max-w-4xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-5 py-2 mb-8 text-sm tracking-[0.2em] uppercase border border-[#FCD34D]/50 rounded-full text-[#FCD34D] bg-[#FCD34D]/5 backdrop-blur-sm animate-fade-in-up">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                Outstanding Research Award
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-bold font-serif tracking-wide mb-10 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-[#Fefefe] via-[#FCD34D] to-[#Fefefe] drop-shadow-lg animate-fade-in-up" style="animation-delay: 0.2s;">
+                114年住院醫師醫學會<br/>論文評選成果
+            </h1>
+            
+            <div class="flex justify-center mb-10 animate-fade-in-up" style="animation-delay: 0.4s;">
+                <div class="h-[2px] w-32 bg-gradient-to-r from-transparent via-[#FCD34D] to-transparent"></div>
+            </div>
+
+            <p class="text-[#E2E8F0] text-xl md:text-2xl font-light tracking-wider max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.6s;">
+                恭賀您於今年度論文評選脫穎而出。<br/>
+                您的卓越研究為醫學領域注入了璀璨光芒。
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-6 -mt-16 relative z-20 space-y-16">
+        
+        <!-- Info Cards -->
+        <section class="grid md:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div class="glass-card p-10 rounded-2xl flex flex-col items-center text-center hover:transform hover:-translate-y-1 transition-all duration-300 shadow-2xl">
+                <div class="p-5 rounded-full bg-[#1E293B] border border-[#FCD34D]/20 mb-6 text-[#FCD34D]">
+                    <i data-lucide="file-text" class="w-8 h-8"></i>
+                </div>
+                <h3 class="text-2xl font-bold font-serif mb-4 text-[#FCD34D]">論文展示</h3>
+                <p class="text-base text-[#94A3B8] mb-2">1/5 (日) ~ 1/16 (四)</p>
+                <p class="text-base text-[#CBD5E1]">第五醫療大樓 海報展示區<br/>及教學平台刊登</p>
+            </div>
+
+            <!-- Card 2 (Ceremony) -->
+            <div class="bg-[#1E293B]/60 backdrop-blur-md border-t-4 border-t-[#FCD34D] border-x border-b border-[#FCD34D]/20 p-10 rounded-2xl flex flex-col items-center text-center transform md:-translate-y-6 shadow-[0_0_30px_rgba(0,0,0,0.3)] relative overflow-hidden group">
+                <div class="absolute inset-0 animate-shimmer pointer-events-none"></div>
+                <div class="p-5 rounded-full bg-gradient-to-br from-[#FCD34D] to-[#B8860B] mb-6 text-[#0F172A] shadow-lg">
+                    <i data-lucide="trophy" class="w-9 h-9"></i>
+                </div>
+                <h3 class="text-2xl font-bold font-serif mb-4 text-[#FCD34D]">頒獎典禮</h3>
+                <p class="text-base text-[#94A3B8] mb-2">1/14 (三) 醫教會</p>
+                <p class="text-base text-[#CBD5E1] font-medium">誠摯邀請獲獎者出席</p>
+                
+                <div class="flex flex-col gap-3 w-full mt-6">
+                    <a href="#rsvp" class="text-sm font-bold tracking-widest text-[#FCD34D] border-b border-[#FCD34D] pb-1 hover:text-white hover:border-white transition-colors self-center">
+                        立即回覆出席狀況
+                    </a>
+                    <a id="btn-calendar-ceremony" href="#" target="_blank" rel="noopener noreferrer"
+                       class="mt-2 text-xs flex items-center justify-center gap-2 text-[#94A3B8] hover:text-[#FCD34D] transition-colors border border-[#334155] rounded-full py-2 px-4 hover:border-[#FCD34D]">
+                        <i data-lucide="calendar-plus" class="w-3.5 h-3.5"></i>
+                        加入 Google 行事曆
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="glass-card p-10 rounded-2xl flex flex-col items-center text-center hover:transform hover:-translate-y-1 transition-all duration-300 shadow-2xl">
+                <div class="p-5 rounded-full bg-[#1E293B] border border-[#FCD34D]/20 mb-6 text-[#FCD34D]">
+                    <i data-lucide="user" class="w-8 h-8"></i>
+                </div>
+                <h3 class="text-2xl font-bold font-serif mb-4 text-[#FCD34D]">114年住院醫師醫學會論文評選發表</h3>
+                <p class="text-base text-[#94A3B8] mb-2">1/16 (五) 上午 07:30</p>
+                <p class="text-base text-[#CBD5E1]">第五醫療大樓 5樓<br/>國際會議廳</p>
+            </div>
+        </section>
+
+        <!-- Winners List -->
+        <section>
+            <div class="flex flex-col items-center mb-14">
+                <h2 class="text-4xl md:text-5xl font-bold font-serif text-[#FCD34D] mb-4 drop-shadow-md">獲獎名單</h2>
+                <div class="w-32 h-1.5 bg-gradient-to-r from-transparent via-[#FCD34D] to-transparent"></div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="flex flex-wrap justify-center gap-5 mb-12" id="tab-container">
+                <button onclick="switchTab('basic')" id="tab-basic" class="tab-btn px-10 py-4 rounded-full text-base tracking-wide transition-all duration-300 backdrop-blur-sm bg-[#334155]/50 text-[#94A3B8] hover:text-[#FCD34D] border border-[#FCD34D]/10">基礎研究組</button>
+                <button onclick="switchTab('clinical')" id="tab-clinical" class="tab-btn px-10 py-4 rounded-full text-base tracking-wide transition-all duration-300 backdrop-blur-sm bg-[#FCD34D] text-[#0F172A] font-bold shadow-[0_0_10px_rgba(252,211,77,0.3)]">臨床研究組</button>
+                <button onclick="switchTab('case')" id="tab-case" class="tab-btn px-10 py-4 rounded-full text-base tracking-wide transition-all duration-300 backdrop-blur-sm bg-[#334155]/50 text-[#94A3B8] hover:text-[#FCD34D] border border-[#FCD34D]/10">個案報告組</button>
+            </div>
+
+            <!-- List Container -->
+            <div id="winners-list" class="grid gap-6">
+                <!-- Javascript will inject items here -->
+            </div>
+        </section>
+
+        <!-- Details & RSVP -->
+        <div class="grid lg:grid-cols-5 gap-8">
+            
+            <!-- Details Block -->
+            <section class="lg:col-span-3 glass-card rounded-2xl p-10">
+                <h3 class="text-2xl font-bold text-[#FCD34D] mb-8 flex items-center gap-4 font-serif">
+                    <i data-lucide="award" class="w-8 h-8 text-[#FCD34D]"></i>
+                    全院演講
+                </h3>
+                <div class="grid gap-10 text-base leading-relaxed">
+                    <div>
+                        <h4 class="font-bold text-lg text-white mb-5 border-b border-[#334155] pb-2 flex items-center gap-2">
+                            <i data-lucide="clock" class="w-5 h-5 text-[#FCD34D]"></i>
+                            114年住院醫師醫學會論文評選發表
+                        </h4>
+                        
+                        <div class="space-y-6 text-[#CBD5E1]">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-[#0F172A]/40 p-4 rounded-lg border border-[#334155]">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-[#FCD34D] font-bold">時間</span>
+                                    <span>1/16 (五) 上午 7:30 - 8:30 第五醫療大樓5樓 國際會議廳</span>
+                                </div>
+                                <a id="btn-calendar-presentation" href="#" target="_blank" rel="noopener noreferrer"
+                                   class="flex-shrink-0 flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#FCD34D]/10 text-[#FCD34D] text-sm hover:bg-[#FCD34D]/20 transition-colors border border-[#FCD34D]/30">
+                                    <i data-lucide="calendar-plus" class="w-4 h-4"></i>
+                                    加入行事曆
+                                </a>
+                            </div>
+
+                            <ul class="space-y-4">
+                                <li class="flex gap-3">
+                                    <span class="text-[#FCD34D] flex-shrink-0">●</span> 
+                                    <div>
+                                        <span class="font-bold text-white">主持人：</span>
+                                        神經外科 陳志偉主任
+                                    </div>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="text-[#FCD34D] flex-shrink-0">●</span> 
+                                    <div>
+                                        <span class="font-bold text-white">發表人：</span>
+                                        <div class="mt-1 leading-loose text-[#94A3B8]">
+                                            麻醉科 黃郁珺醫師、神經外科 陳昱廷醫師、神經外科 葉小菡醫師、神經內科 蔡穩穩醫師、放射腫瘤部 周宛萱醫師
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-lg text-white mb-4 border-b border-[#334155] pb-2 flex items-center gap-2">
+                            <i data-lucide="file-text" class="w-5 h-5 text-[#FCD34D]"></i>
+                            學分認證
+                        </h4>
+                        <ul class="grid gap-3 text-[#94A3B8]">
+                            <li class="flex items-center gap-2">
+                                <div class="w-1.5 h-1.5 bg-[#FCD34D] rounded-full"></div>
+                                CFD核心課程 10點
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <div class="w-1.5 h-1.5 bg-[#FCD34D] rounded-full"></div>
+                                科部外教學績效積分
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <div class="w-1.5 h-1.5 bg-[#FCD34D] rounded-full"></div>
+                                臨床教師認證B類「六大核心」、「進階」各1學分
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RSVP Form -->
+            <section id="rsvp" class="lg:col-span-2 glass-card rounded-2xl shadow-2xl overflow-hidden flex flex-col">
+                <div class="h-2 bg-gradient-to-r from-[#D4AF37] via-[#FCD34D] to-[#D4AF37]"></div>
+                <div class="p-10 flex-grow flex flex-col justify-center">
+                    
+                    <div class="text-center mb-8">
+                        <h3 class="text-3xl font-bold text-[#FCD34D] mb-3 font-serif">頒獎典禮出席回覆</h3>
+                    </div>
+
+                    <!-- Stage 1: Search -->
+                    <div id="rsvp-search" class="space-y-8 animate-fade-in">
+                        <form onsubmit="handleSearch(event)" class="space-y-6">
+                            <div class="space-y-3">
+                                <label class="text-base font-bold text-[#E2E8F0] flex items-center gap-2">
+                                    <i data-lucide="user" class="w-4.5 h-4.5 text-[#FCD34D]"></i>
+                                    人事號：
+                                </label>
+                                <input id="search-id" type="text" required placeholder="例如：12345" 
+                                    class="w-full px-5 py-4 rounded-xl border border-[#475569] bg-[#0F172A]/50 text-white focus:border-[#FCD34D] focus:ring-1 focus:ring-[#FCD34D] outline-none transition-all placeholder-gray-600 text-lg">
+                            </div>
+                            
+                            <div id="search-error" class="hidden flex items-center gap-2 text-yellow-400 text-sm bg-yellow-400/10 p-3 rounded-lg border border-yellow-400/20">
+                                <i data-lucide="alert-circle" class="w-4 h-4"></i>
+                                <span id="search-error-msg"></span>
+                            </div>
+
+                            <button type="submit" id="btn-search" class="w-full py-4 rounded-xl font-bold text-lg shadow-lg transition-all flex items-center justify-center gap-3 bg-gradient-to-r from-[#D4AF37] to-[#FCD34D] text-[#0F172A] hover:shadow-[0_0_15px_rgba(252,211,77,0.4)]">
+                                下一步：填寫出席意願
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Stage 2: Form -->
+                    <div id="rsvp-form" class="hidden space-y-8 animate-fade-in">
+                        <form onsubmit="handleSubmit(event)" class="space-y-8">
+                            <div class="bg-[#0F172A]/40 rounded-xl p-5 text-center border border-[#334155] mb-5">
+                                <div class="grid gap-2">
+                                    <div class="flex items-center justify-center gap-2">
+                                        <span class="text-[#94A3B8] text-sm">人事代號：</span>
+                                        <span class="text-white font-mono" id="display-id"></span>
+                                    </div>
+                                    <div class="flex flex-col items-center justify-center gap-1">
+                                        <label for="input-name" class="text-[#FCD34D] font-bold text-sm">姓名：</label>
+                                        <input type="text" id="input-name" class="bg-transparent border-b border-[#FCD34D] text-white text-center text-xl font-bold focus:outline-none focus:border-white w-40 placeholder-gray-600" placeholder="請輸入姓名">
+                                    </div>
+                                    <p class="text-[#94A3B8] text-xs mt-1">醫師 您好</p>
+                                </div>
+                            </div>
+
+                            <div class="space-y-4">
+                                <label class="text-base font-bold text-[#E2E8F0] block mb-2">出席意願：</label>
+                                <div class="grid grid-cols-2 gap-5">
+                                    <label class="relative cursor-pointer group">
+                                        <input type="radio" name="attendance" value="出席" checked class="peer sr-only">
+                                        <div class="p-4 rounded-xl border border-[#475569] text-center text-base text-[#94A3B8] peer-checked:border-[#FCD34D] peer-checked:bg-[#FCD34D]/10 peer-checked:text-[#FCD34D] transition-all hover:bg-[#334155]">
+                                            出席
+                                        </div>
+                                    </label>
+                                    <label class="relative cursor-pointer group">
+                                        <input type="radio" name="attendance" value="不克出席" class="peer sr-only">
+                                        <div class="p-4 rounded-xl border border-[#475569] text-center text-base text-[#94A3B8] peer-checked:border-gray-400 peer-checked:bg-white/5 peer-checked:text-white transition-all hover:bg-[#334155]">
+                                            不克出席
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="space-y-3">
+                                <label class="text-base font-bold text-[#E2E8F0]">備註 (選填)</label>
+                                <textarea id="input-remarks" rows="3" placeholder="如有代領人或其他需求請說明" 
+                                    class="w-full px-5 py-3 rounded-xl border border-[#475569] bg-[#0F172A]/50 text-white focus:border-[#FCD34D] focus:ring-1 focus:ring-[#FCD34D] outline-none transition-all placeholder-gray-600 text-base"></textarea>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <button type="button" onclick="showSearchStage()" class="px-5 py-4 rounded-xl text-[#94A3B8] hover:text-white transition-colors text-base">
+                                    回上一頁
+                                </button>
+                                <button type="submit" id="btn-submit" class="flex-grow py-4 rounded-xl font-bold text-lg shadow-lg transition-all flex items-center justify-center gap-3 bg-gradient-to-r from-[#D4AF37] to-[#FCD34D] text-[#0F172A] hover:shadow-[0_0_15px_rgba(252,211,77,0.4)]">
+                                    <i data-lucide="send" class="w-5 h-5"></i>
+                                    送出回覆
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Stage 3: Success -->
+                    <div id="rsvp-success" class="hidden text-center animate-fade-in py-6">
+                        <div class="w-20 h-20 bg-[#FCD34D] text-[#0F172A] rounded-full flex items-center justify-center mx-auto mb-8 shadow-[0_0_20px_rgba(252,211,77,0.4)]">
+                            <i data-lucide="check-circle" class="w-10 h-10"></i>
+                        </div>
+                        <h4 class="text-3xl font-bold text-[#FCD34D] mb-4 font-serif">回覆成功</h4>
+                        <p class="text-[#CBD5E1] text-lg mb-10">
+                            感謝您的填寫，我們期待在典禮上見到您。
+                        </p>
+                        <button onclick="showSearchStage(); document.getElementById('search-id').value = '';" 
+                            class="text-base text-[#94A3B8] hover:text-[#FCD34D] underline decoration-dotted underline-offset-4">
+                            返回表單
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center text-[#64748B] py-14 border-t border-[#334155] space-y-8">
+            <div class="max-w-xl mx-auto bg-[#1E293B]/40 border border-[#334155] rounded-xl p-6 text-sm md:text-base leading-relaxed">
+                <p class="text-[#FCD34D] font-bold mb-3 text-lg">【如有疑問請來電或來信詢問，謝謝】</p>
+                <div class="flex flex-col gap-3 items-center text-[#E2E8F0]">
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="mail" class="w-4.5 h-4.5 text-[#94A3B8]"></i>
+                        <a href="mailto:cmh90022@mail.chimei.org.tw" class="hover:text-[#FCD34D] transition-colors">
+                            cmh90022@mail.chimei.org.tw
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="phone" class="w-4.5 h-4.5 text-[#94A3B8]"></i>
+                        <span>06-2812811 分機 57438 教學部 林淑雅</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-3">
+                <p class="text-sm">教學部 住院醫師組</p>
+                <div class="flex justify-center gap-3">
+                    <div class="w-1.5 h-1.5 rounded-full bg-[#334155]"></div>
+                    <div class="w-1.5 h-1.5 rounded-full bg-[#334155]"></div>
+                    <div class="w-1.5 h-1.5 rounded-full bg-[#334155]"></div>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Logic Script -->
+    <script>
+        // ★★★ 已自動為您填入提供的 Google Apps Script 網址 ★★★
+        // 使用 .trim() 確保沒有意外的空白
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxFaN2VYUlBnscr_EiHPY6xIH5aGbqovSooXlBpvu2wIvI9ijTlqdTGjbdvDvlOrlpV/exec".trim();
+
+        // Data
+        const winners = {
+            basic: [
+                { rank: 1, award: "第一名", prize: "10,000", dept: "神經外科", name: "陳昱廷", title: "EFFECTS OF HIGH FAST DIET ON GUT MICROBIOTA COMPOSITION AFTER EXPERIMENTAL TRAUMATIC BRAIN INJURY RAT", speaker: true },
+                { rank: 2, award: "第二名", prize: "8,000", dept: "麻醉科", name: "黃郁珺", title: "MIR-200C PLAYS A CRUCIAL ROLE IN SUSTAINING PERSISTENT NEUROPATHIC PAIN: ITS INHIBITION CAN ALLEVIATE PAIN AND REDUCE ASTROCYTE ACTIVATION BY INCREASING RECK EXPRESSION", speaker: true },
+                { rank: 3, award: "第三名", prize: "6,000", dept: "麻醉科", name: "謝孟勳", title: "THE NEWLY IDENTIFIED INTERACTION BETWEEN MIR-29A AND TYPE 1 INTERFERON RECEPTOR REGULATES INFLAMMATORY PAIN", speaker: false },
+                { rank: 4, award: "佳作", prize: "2,000", dept: "急診醫學部", name: "胡婷勻", title: "TRANSMISSION DYNAMICS OF MULTIDRUG-RESISTANT KLEBSIELLA PNEUMONIAE ST792 AND NOVEL ST7120 STRAINS IN THE PAEDIATRIC INTENSIVE CARE UNIT", speaker: false },
+            ],
+            clinical: [
+                { rank: 1, award: "第一名", prize: "7,000", dept: "放射腫瘤部", name: "周宛萱", title: "將環周切緣狀態結合至當前ypT分期系統以提升直腸癌病人於前導性化放療及手術後的存活率預測", speaker: true },
+                { rank: 2, award: "第二名", prize: "5,000", dept: "神經內科", name: "蔡穩穩", title: "Liberal vs restrictive transfusion strategy for acute brain injury: A meta analysis with trial sequential analysis of randomized clinical trials", speaker: true },
+                { rank: 2, award: "第二名", prize: "5,000", dept: "神經外科", name: "葉小菡", title: "DEVELOPING A HIGH-PERFORMANCE AI MODEL FOR ICH MORTALITY PREDICTION USING MACHINE LEARNING IN ICU SETTINGS", speaker: true },
+                { rank: 3, award: "第三名", prize: "4,000", dept: "內科部", name: "郭加智", title: "GLUCAGON-LIKE PEPTIDE-1 RECEPTOR AGONISTS AND LIVER OUTCOMES IN PATIENTS WITH METABOLIC DYSFUNCTION- ASSOCIATED STEATOTIC LIVER DISEASE AND TYPE 2 DIABETES: A PROPENSITY SCORE-MATCHED COHORT STUDY", speaker: false },
+                { rank: 3, award: "第三名", prize: "4,000", dept: "放射腫瘤部", name: "柯德敏", title: "新輔助化放療後，可切除食道癌患者之輔助化療成效：台灣癌症登記資料庫之人口研究", speaker: false },
+                { rank: 4, award: "佳作", prize: "2,000", dept: "泌尿外科", name: "江亭易", title: "Association Between Sexual Dysfunction and Allergic Diseases: A Propensity Score-Matched Cohort Study", speaker: false },
+                { rank: 4, award: "佳作", prize: "2,000", dept: "放射腫瘤部", name: "洪瑋汝", title: "開刀後病理分期T4A齦頰鱗狀細胞癌的預後因子：分析侵襲深度的影響", speaker: false },
+            ],
+            case: [
+                { rank: 1, award: "第一名", prize: "5,000", dept: "麻醉科", name: "郭家妤", title: "SPI VALUE IN VERY LOW BIRTH WEIGHT NEONATES- SURGERY FOR ESOPHAGEAL ATRESIA WITH TRACHEOESOPHAGEAL FISTULA: A CASE REPORT", speaker: false },
+                { rank: 2, award: "第二名", prize: "3,000", dept: "放射診斷科", name: "江秉鴻", title: "INFLAMMATORY MYOFIBROBLASTIC TUMOR OF THE LIVER", speaker: false },
+                { rank: 2, award: "第二名", prize: "3,000", dept: "骨科部", name: "饒文育", title: "薦骨骨折手術固定與臨床預後：奇美醫院病例分析與文獻回顧", speaker: false },
+                { rank: 3, award: "第三名", prize: "2,000", dept: "放射診斷科", name: "林佳宜", title: "CASE PRESENTATION: KNEE SYNOVIAL OSTEOCHONDROMATOSIS MIMICKING TENOSYNOVIAL GIANT CELL TUMOR", speaker: false },
+                { rank: 3, award: "第三名", prize: "2,000", dept: "放射診斷科", name: "徐浩評", title: "METASTATIC SOLITARY FIBROUS TUMOR IN THE LIVER: CASE REPORT", speaker: false },
+                { rank: 4, award: "佳作", prize: "1,000", dept: "放射診斷科", name: "楊鎧輿", title: "RENAL REPLACEMENT LIPOMATOSIS", speaker: false },
+                { rank: 4, award: "佳作", prize: "1,000", dept: "齒顎矯正科", name: "薛晴云", title: "ORTHODONTIC TREATMENT OF CLASS III PATIENT WITH ANTERIOR CROSSBITE AND SEVERE DEEP BITE- A CASE REPORT", speaker: false },
+            ]
+        };
+
+        // Events for Calendar
+        const events = {
+            ceremony: {
+                title: "114年住院醫師醫學會論文評選頒獎典禮",
+                start: "20250114T122000", // 12:20
+                end: "20250114T124000",   // 12:40
+                details: "地點：醫教會\n誠摯邀請獲獎者出席",
+                location: "奇美醫院 醫教會"
+            },
+            presentation: {
+                title: "114年住院醫師醫學會論文評選發表 (全院演講)",
+                start: "20250116T073000",
+                end: "20250116T083000",
+                details: "主持人：神經外科 陳志偉主任\n發表人：黃郁珺、陳昱廷、葉小菡、蔡穩穩、周宛萱醫師\n\n學分認證：\n- CFD核心課程 10點\n- 科部外教學績效積分\n- 臨床教師認證B類",
+                location: "奇美醫院 第五醫療大樓5樓 國際會議廳"
+            }
+        };
+
+        // Helper: Generate Calendar Link
+        function generateGoogleCalendarUrl(event) {
+            const baseUrl = "https://www.google.com/calendar/render?action=TEMPLATE";
+            const params = new URLSearchParams({
+                text: event.title,
+                dates: `${event.start}/${event.end}`,
+                details: event.details,
+                location: event.location,
+            });
+            return `${baseUrl}&${params.toString()}`;
+        }
+
+        // Helper: Get Badge Color
+        function getBadgeStyle(rank) {
+            switch(rank) {
+                case 1: return "bg-gradient-to-br from-[#FFD700] to-[#B8860B] text-white shadow-lg";
+                case 2: return "bg-gradient-to-br from-[#E0E0E0] to-[#757575] text-white shadow-lg";
+                case 3: return "bg-gradient-to-br from-[#CD7F32] to-[#8B4513] text-white shadow-lg";
+                default: return "bg-gradient-to-br from-[#64748B] to-[#475569] text-white shadow-lg";
+            }
+        }
+
+        // Render Winners List
+        function renderWinners(category) {
+            const container = document.getElementById('winners-list');
+            container.innerHTML = ''; // Clear existing
+
+            // Update Tab Styles
+            ['basic', 'clinical', 'case'].forEach(t => {
+                const btn = document.getElementById(`tab-${t}`);
+                if (t === category) {
+                    btn.className = "tab-btn px-10 py-4 rounded-full text-base tracking-wide transition-all duration-300 backdrop-blur-sm bg-[#FCD34D] text-[#0F172A] font-bold shadow-[0_0_10px_rgba(252,211,77,0.3)]";
+                } else {
+                    btn.className = "tab-btn px-10 py-4 rounded-full text-base tracking-wide transition-all duration-300 backdrop-blur-sm bg-[#334155]/50 text-[#94A3B8] hover:text-[#FCD34D] border border-[#FCD34D]/10";
+                }
+            });
+
+            // Populate List
+            winners[category].forEach(item => {
+                const badgeClass = getBadgeStyle(item.rank);
+                const speakerBadge = item.speaker ? `
+                    <div class="mt-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FCD34D]/10 text-[#FCD34D] text-sm font-bold border border-[#FCD34D]/20">
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                        1/16 全院演講發表
+                    </div>` : '';
+
+                const html = `
+                    <div class="bg-[#1E293B]/60 backdrop-blur-md border border-[#FCD34D]/30 rounded-xl p-8 hover:bg-[#1E293B]/80 transition-all duration-300 flex flex-col md:flex-row gap-8 items-start md:items-center group relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-r from-[#FCD34D]/0 via-[#FCD34D]/5 to-[#FCD34D]/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 pointer-events-none"></div>
+                        
+                        <div class="flex-shrink-0 flex items-center gap-5 md:w-64">
+                            <div class="px-5 py-2 rounded-lg text-sm font-bold tracking-wider uppercase ${badgeClass}">
+                                ${item.award}
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-[#E2E8F0] group-hover:text-[#FCD34D] transition-colors">${item.name} <span class="text-sm text-[#64748B]">醫師</span></h4>
+                                <p class="text-sm text-[#94A3B8]">${item.dept}</p>
+                            </div>
+                        </div>
+
+                        <div class="flex-grow border-l-0 md:border-l border-[#334155] md:pl-8">
+                            <h5 class="text-base md:text-lg font-medium text-[#CBD5E1] leading-relaxed group-hover:text-white transition-colors">
+                                ${item.title}
+                            </h5>
+                            ${speakerBadge}
+                        </div>
+
+                        <div class="flex-shrink-0 text-right md:w-32 mt-2 md:mt-0 pt-3 md:pt-0 border-t md:border-t-0 border-dashed border-[#334155] w-full md:w-auto">
+                            <span class="text-sm font-mono text-[#64748B] uppercase tracking-wider">Award</span>
+                            <div class="text-2xl font-bold text-[#FCD34D] drop-shadow-sm">$${item.prize}</div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += html;
+            });
+            
+            // Re-initialize icons for new elements
+            lucide.createIcons();
+        }
+
+        // --- RSVP Logic ---
+        
+        // Show functions
+        function showSearchStage() {
+            document.getElementById('rsvp-search').classList.remove('hidden');
+            document.getElementById('rsvp-form').classList.add('hidden');
+            document.getElementById('rsvp-success').classList.add('hidden');
+        }
+
+        function showFormStage(name, id, isManual = false) {
+            document.getElementById('rsvp-search').classList.add('hidden');
+            document.getElementById('rsvp-form').classList.remove('hidden');
+            document.getElementById('display-id').textContent = id;
+            
+            const nameInput = document.getElementById('input-name');
+            if (isManual) {
+                // Manual entry mode
+                nameInput.value = "";
+                nameInput.readOnly = false;
+                nameInput.focus();
+                document.getElementById('search-error').classList.remove('hidden');
+                document.getElementById('search-error-msg').textContent = "無法自動取得姓名，請手動填寫。";
+            } else {
+                // Auto mode
+                nameInput.value = name || "";
+                nameInput.readOnly = true;
+                document.getElementById('search-error').classList.add('hidden');
+            }
+        }
+
+        function showSuccessStage() {
+            document.getElementById('rsvp-form').classList.add('hidden');
+            document.getElementById('rsvp-success').classList.remove('hidden');
+        }
+
+        // Handle Search
+        async function handleSearch(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn-search');
+            const errorDiv = document.getElementById('search-error');
+            const searchId = document.getElementById('search-id').value;
+
+            if (!searchId) return;
+
+            // Loading state
+            btn.innerHTML = `<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> 查詢中...`;
+            lucide.createIcons();
+            btn.disabled = true;
+            errorDiv.classList.add('hidden');
+
+            try {
+                // Explicitly set mode: 'cors' to check network capability
+                // Using credentials: 'omit' is important for GAS public scripts
+                const response = await fetch(`${GOOGLE_SCRIPT_URL}?action=search&id=${encodeURIComponent(searchId)}`, {
+                    method: 'GET',
+                    redirect: 'follow',
+                    mode: 'cors', 
+                    credentials: 'omit'
+                });
+                const json = await response.json();
+
+                if (json.success && json.data.found) {
+                    showFormStage(json.data.name, json.data.id);
+                } else {
+                    document.getElementById('search-error-msg').textContent = '找不到此人事號，請確認是否輸入正確。';
+                    errorDiv.classList.remove('hidden');
+                }
+            } catch (err) {
+                console.error("Search fetch failed, fallback to manual entry", err);
+                // Fallback: If network fail (likely CORS block), allow manual entry
+                showFormStage("", searchId, true);
+            } finally {
+                btn.innerHTML = '下一步：填寫出席意願';
+                btn.disabled = false;
+            }
+        }
+
+        // Handle Submit
+        async function handleSubmit(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn-submit');
+            const searchId = document.getElementById('display-id').textContent;
+            const inputName = document.getElementById('input-name').value;
+            const attendance = document.querySelector('input[name="attendance"]:checked').value;
+            const remarks = document.getElementById('input-remarks').value;
+
+            // Loading state
+            btn.innerHTML = `<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> 送出中...`;
+            lucide.createIcons();
+            btn.disabled = true;
+
+            const payload = JSON.stringify({
+                action: 'submit',
+                id: searchId,
+                name: inputName, // Include name in case of manual entry
+                attendance: attendance,
+                remarks: remarks
+            });
+
+            try {
+                // CRITICAL FIX: Use mode: 'no-cors'
+                // This sends the data but returns an opaque response (status 0)
+                // We assume success if no error is thrown
+                await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', 
+                    cache: 'no-cache',
+                    headers: {
+                        'Content-Type': 'text/plain;charset=utf-8'
+                    },
+                    body: payload
+                });
+                
+                // Since no-cors means we can't read JSON response, we assume success
+                showSuccessStage();
+
+            } catch (err) {
+                console.error(err);
+                alert('送出時發生連線問題，請檢查網路連線。');
+            } finally {
+                btn.innerHTML = `<i data-lucide="send" class="w-5 h-5"></i> 送出回覆`;
+                lucide.createIcons();
+                btn.disabled = false;
+            }
+        }
+
+        // Wrapper for switching tabs to call from HTML
+        window.switchTab = renderWinners;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set Calendar Links
+            document.getElementById('btn-calendar-ceremony').href = generateGoogleCalendarUrl(events.ceremony);
+            document.getElementById('btn-calendar-presentation').href = generateGoogleCalendarUrl(events.presentation);
+
+            // Initial Render
+            renderWinners('clinical');
+            
+            // Icons
+            lucide.createIcons();
+        });
+
+    </script>
+</body>
+</html>
