@@ -133,7 +133,7 @@
                     <i data-lucide="file-text" class="w-8 h-8"></i>
                 </div>
                 <h3 class="text-2xl font-bold font-serif mb-4 text-[#FCD34D]">論文展示</h3>
-                <p class="text-base text-[#94A3B8] mb-2">1/5 (日) ~ 1/16 (四)</p>
+                <p class="text-base text-[#94A3B8] mb-2">1/5 (一) ~ 1/16 (五)</p>
                 <p class="text-base text-[#CBD5E1]">第五醫療大樓 海報展示區<br/>及教學平台刊登</p>
             </div>
 
@@ -144,8 +144,12 @@
                     <i data-lucide="trophy" class="w-9 h-9"></i>
                 </div>
                 <h3 class="text-2xl font-bold font-serif mb-4 text-[#FCD34D]">頒獎典禮</h3>
-                <p class="text-base text-[#94A3B8] mb-2">1/14 (三) 醫教會</p>
-                <p class="text-base text-[#CBD5E1] font-medium">誠摯邀請獲獎者出席</p>
+                <p class="text-base text-[#94A3B8] mb-2">115年1月14日 (三) 醫學教育委員會會議</p>
+                <div class="text-base text-[#CBD5E1] font-medium space-y-1 mb-4">
+                    <p>時間：中午12:20</p>
+                    <p>地點：552會議室外面集合</p>
+                </div>
+                <p class="text-sm text-[#FCD34D]/80">誠摯邀請獲獎者出席</p>
                 
                 <div class="flex flex-col gap-3 w-full mt-6">
                     <a href="#rsvp" class="text-sm font-bold tracking-widest text-[#FCD34D] border-b border-[#FCD34D] pb-1 hover:text-white hover:border-white transition-colors self-center">
@@ -312,6 +316,13 @@
                                 </div>
                             </div>
 
+                            <!-- Added Reminder Text -->
+                            <div class="text-center p-4 bg-[#FCD34D]/10 border border-[#FCD34D]/30 rounded-lg">
+                                <p class="text-[#FCD34D] font-bold text-lg mb-1">115年1月14日 (三) 醫學教育委員會會議</p>
+                                <p class="text-[#E2E8F0]">時間：中午12:20</p>
+                                <p class="text-[#E2E8F0]">地點：552會議室外面集合</p>
+                            </div>
+
                             <div class="space-y-4">
                                 <label class="text-base font-bold text-[#E2E8F0] block mb-2">出席意願：</label>
                                 <div class="grid grid-cols-2 gap-5">
@@ -435,10 +446,10 @@
         const events = {
             ceremony: {
                 title: "114年住院醫師醫學會論文評選頒獎典禮",
-                start: "20250114T122000", // 12:20
-                end: "20250114T124000",   // 12:40
-                details: "地點：醫教會\n誠摯邀請獲獎者出席",
-                location: "奇美醫院 醫教會"
+                start: "20260114T122000", // 12:20 (Using 2026 for ROC 115)
+                end: "20260114T124000",   // 12:40 (Using 2026 for ROC 115)
+                details: "時間：中午12:20\n地點：552會議室外面集合\n\n誠摯邀請獲獎者出席",
+                location: "552會議室外面集合"
             },
             presentation: {
                 title: "114年住院醫師醫學會論文評選發表 (全院演講)",
