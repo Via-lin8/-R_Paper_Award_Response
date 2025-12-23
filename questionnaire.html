@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>114年度 住院醫師論文評選獲獎者深度回饋問卷</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- React & ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #f8fafc;
+        }
+        .serif-title {
+            font-family: 'Playfair Display', serif;
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        /* Custom Radio Styles */
+        input[type="radio"] {
+            accent-color: #1e3a8a; /* deep blue */
+            width: 1.2rem;
+            height: 1.2rem;
+        }
+        .section-icon-bg {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // Inline Icons Components (Replacements for Lucide to ensure stability)
+        const Trophy = ({ size = 24, className = "" }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+                <path d="M4 22h16" />
+                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+                <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+            </svg>
+        );
+
+        const Scale = ({ size = 24, className = "" }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+                <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+                <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+                <path d="M7 21h10" />
+                <path d="M12 3v18" />
+                <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" />
+            </svg>
+        );
+
+        const Lightbulb = ({ size = 24, className = "" }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+                <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-1 1.5-2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+                <path d="M9 18h6" />
+                <path d="M10 22h4" />
+            </svg>
+        );
+
+        const HandHelping = ({ size = 24, className = "" }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+                <path d="M11 12h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 14" />
+                <path d="m7 18 1.6-1.4c.3-.4.8-.6 1.4-.6h7c1.1 0 2 1 2 2v0a2 2 0 0 1-2 2h-2.7l-4.2-4.2" />
+                <path d="m16 12 1.4-1.4c.6-.6 1.1-1.1 1.4-1.6.6-1.1 1-2.3 1-3.5v0a6 6 0 0 0-12 0v2.5" />
+            </svg>
+        );
+
+        const CheckCircle2 = ({ size = 24, className = "" }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+                <circle cx="12" cy="12" r="10" />
+                <path d="m9 12 2 2 4-4" />
+            </svg>
+        );
+
+        const ArrowRight = ({ size = 24, className = "" }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+            </svg>
+        );
+
+        const ScrollText = ({ size = 24, className = "" }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+                <path d="M15 12h-5" />
+                <path d="M15 8h-5" />
+                <path d="M19 17V5a2 2 0 0 0-2-2H4" />
+                <path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3" />
+            </svg>
+        );
+
+        const Award = ({ size = 24, className = "" }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+                <circle cx="12" cy="8" r="6" />
+                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+            </svg>
+        );
+
+
+        const App = () => {
+            // TODO: 請在此處填入您部署 Apps Script 後取得的「網頁應用程式網址」
+            const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxMbUBtPhFZ2nnCYj3MPjxSvILVgpzsQ3-2cEcGAKar7E9DJHkTnflOh6tk_-ri9hU/exec";
+            
+            const [submitted, setSubmitted] = useState(false);
+            const [isSubmitting, setIsSubmitting] = useState(false); // 新增提交狀態
+            const [formData, setFormData] = useState({
+                q1: '',
+                q2: '',
+                q3: '',
+                q4: '',
+                q5: '',
+                q6: '',
+                q7: '',
+                q8_1: '', // 實質經費
+                q8_2: '', // 業師指導
+                q8_3: '', // 榮譽曝光
+                q8_4: '', // 學術技能
+                q9: '',
+                q10: '',
+                q11: ''
+            });
+
+            const handleChange = (e) => {
+                const { name, value } = e.target;
+                setFormData(prev => ({
+                    ...prev,
+                    [name]: value
+                }));
+            };
+
+            const handleSubmit = async (e) => {
+                e.preventDefault();
+                setIsSubmitting(true);
+
+                // 檢查是否已填入 URL
+                if (GOOGLE_SCRIPT_URL.includes("PLACEHOLDER") || GOOGLE_SCRIPT_URL === "") {
+                    alert("請先在程式碼中設定 GOOGLE_SCRIPT_URL");
+                    setIsSubmitting(false);
+                    return;
+                }
+
+                try {
+                    // 使用 fetch 發送 POST 請求
+                    // mode: 'no-cors' 是關鍵，它允許從不同網域發送數據到 Google
+                    await fetch(GOOGLE_SCRIPT_URL, {
+                        method: "POST",
+                        mode: "no-cors", 
+                        headers: {
+                            "Content-Type": "text/plain;charset=utf-8",
+                        },
+                        body: JSON.stringify(formData),
+                    });
+
+                    // 成功後顯示感謝頁面
+                    // 為了使用者體驗，稍微延遲一下讓他們看到載入中的狀態
+                    setTimeout(() => {
+                        setSubmitted(true);
+                        window.scrollTo(0, 0);
+                        setIsSubmitting(false);
+                    }, 800);
+
+                } catch (error) {
+                    console.error("Error submitting form", error);
+                    alert("傳送失敗，請檢查網路連線或稍後再試。");
+                    setIsSubmitting(false);
+                }
+            };
+
+            const SectionHeader = ({ icon: Icon, title, subtitle, colorClass = "text-blue-900" }) => (
+                <div className="flex items-start gap-4 mb-6 border-b border-slate-200 pb-4">
+                    <div className={`p-3 rounded-xl section-icon-bg text-blue-800 shadow-sm`}>
+                        <Icon size={28} />
+                    </div>
+                    <div>
+                        <h2 className={`text-xl md:text-2xl font-bold ${colorClass}`}>{title}</h2>
+                        <p className="text-slate-500 text-sm mt-1">{subtitle}</p>
+                    </div>
+                </div>
+            );
+
+            const RadioOption = ({ name, value, label, currentVal, onChange }) => (
+                <label className={`flex items-start p-4 rounded-lg border cursor-pointer transition-all duration-200 group
+                    ${currentVal === value 
+                        ? 'bg-blue-50 border-blue-500 shadow-sm' 
+                        : 'bg-white border-slate-200 hover:border-blue-300 hover:bg-slate-50'
+                    }`}>
+                    <input 
+                        type="radio" 
+                        name={name} 
+                        value={value} 
+                        checked={currentVal === value} 
+                        onChange={onChange}
+                        className="mt-1 mr-3 flex-shrink-0"
+                    />
+                    <span className={`text-sm md:text-base ${currentVal === value ? 'text-blue-900 font-medium' : 'text-slate-700 group-hover:text-slate-900'}`}>
+                        {label}
+                    </span>
+                </label>
+            );
+
+            if (submitted) {
+                return (
+                    <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
+                        <div className="bg-white max-w-lg w-full rounded-2xl shadow-2xl p-8 text-center border-t-8 border-blue-900 animate-fade-in">
+                            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 text-green-600">
+                                <CheckCircle2 size={48} />
+                            </div>
+                            <h2 className="text-3xl font-bold text-slate-800 mb-4 serif-title">感謝您的深度回饋</h2>
+                            <p className="text-slate-600 mb-8 leading-relaxed">
+                                您的寶貴意見是推動醫院研究制度進步的關鍵。<br/>
+                                我們會慎重評估這 18 份回饋，<br/>
+                                致力打造更具支持力的研究環境。
+                            </p>
+                            <div className="text-sm text-slate-400">
+                                教學部 住院醫師組 敬上
+                            </div>
+                            <button 
+                                onClick={() => window.location.reload()}
+                                className="mt-8 text-blue-600 hover:text-blue-800 text-sm font-medium"
+                            >
+                                返回問卷首頁
+                            </button>
+                        </div>
+                    </div>
+                );
+            }
+
+            return (
+                <div className="min-h-screen pb-12">
+                    {/* Hero Header */}
+                    <header className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white pt-16 pb-24 px-4 relative overflow-hidden">
+                        <div className="absolute top-0 left-0 w-full h-full opacity-10">
+                            <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                                <path d="M0 100 C 20 0 50 0 100 100 Z" fill="white" />
+                            </svg>
+                        </div>
+                        <div className="max-w-4xl mx-auto relative z-10 text-center">
+                            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-amber-300 text-sm font-medium mb-6 border border-white/20">
+                                <Trophy size={16} />
+                                <span>114年度 住院醫師論文評選</span>
+                            </div>
+                            <h1 className="text-3xl md:text-5xl font-bold mb-6 serif-title tracking-wide">
+                                獲獎者深度回饋問卷
+                            </h1>
+                            <p className="text-blue-100 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light">
+                                恭喜您的研究成果脫穎而出。<br className="hidden md:block"/>
+                                為了讓明年的制度更精準支持研究者，我們需要借用您 3-5 分鐘的時間，分享真實的決策思維。
+                            </p>
+                            <div className="mt-8 flex justify-center gap-2 text-sm text-blue-200">
+                                <span className="bg-blue-950/50 px-3 py-1 rounded">匿名填答</span>
+                                <span className="bg-blue-950/50 px-3 py-1 rounded">約 3-5 分鐘</span>
+                            </div>
+                        </div>
+                    </header>
+
+                    {/* Main Content Form */}
+                    <main className="max-w-3xl mx-auto px-4 -mt-16 relative z-20">
+                        <form onSubmit={handleSubmit} className="space-y-8">
+
+                            {/* Part 1 */}
+                            <section className="bg-white rounded-2xl shadow-xl p-6 md:p-8 card-hover border-t-4 border-amber-400">
+                                <SectionHeader 
+                                    icon={Award} 
+                                    title="第一部分：榮耀與感受" 
+                                    subtitle="確認獎項對您的心理價值與自我效能的影響。"
+                                />
+                                
+                                <div className="space-y-8">
+                                    <div className="space-y-4">
+                                        <label className="block text-slate-800 font-semibold text-lg">
+                                            1. 當您得知自己的論文被「自動撈取並獲獎」時，第一直覺感受是？
+                                        </label>
+                                        <div className="grid gap-3">
+                                            <RadioOption name="q1" value="驚喜肯定" label="驚喜肯定：覺得努力被看見，強化了自信。" currentVal={formData.q1} onChange={handleChange} />
+                                            <RadioOption name="q1" value="意外之財" label="意外之財：沒想過會得獎，覺得運氣好。" currentVal={formData.q1} onChange={handleChange} />
+                                            <RadioOption name="q1" value="壓力負擔" label="壓力負擔：擔心後續有行政配合或報告要求。" currentVal={formData.q1} onChange={handleChange} />
+                                            <RadioOption name="q1" value="無感" label="無感：對我來說差別不大。" currentVal={formData.q1} onChange={handleChange} />
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-4">
+                                        <label className="block text-slate-800 font-semibold text-lg">
+                                            2. 這個獎項對於您「研究自信」的影響？
+                                        </label>
+                                        <div className="grid gap-3">
+                                            <RadioOption name="q2" value="顯著提升" label="顯著提升：覺得自己其實蠻適合做研究的。" currentVal={formData.q2} onChange={handleChange} />
+                                            <RadioOption name="q2" value="微幅提升" label="微幅提升：有高興一下，但不影響我對自己的評價。" currentVal={formData.q2} onChange={handleChange} />
+                                            <RadioOption name="q2" value="沒有影響" label="沒有影響：研究僅是為了符合醫院或專科要求。" currentVal={formData.q2} onChange={handleChange} />
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            {/* Part 2 */}
+                            <section className="bg-white rounded-2xl shadow-xl p-6 md:p-8 card-hover border-t-4 border-blue-600">
+                                <SectionHeader 
+                                    icon={Scale} 
+                                    title="第二部分：制度壓力測試" 
+                                    subtitle="您的決策思維，是明年制度設計的關鍵依據。"
+                                />
+                                
+                                <div className="space-y-8">
+                                    <div className="space-y-4">
+                                        <label className="block text-slate-800 font-semibold text-lg">
+                                            3. <span className="text-blue-600">【關鍵假設】</span>若明年改為「全主動報名制」（需自行填表參賽，無自動撈取），您還會參加嗎？
+                                        </label>
+                                        <div className="grid gap-3">
+                                            <RadioOption name="q3" value="一定會" label="一定會：我對研究有熱忱，願主動爭取榮譽。" currentVal={formData.q3} onChange={handleChange} />
+                                            <RadioOption name="q3" value="可能會" label="可能會：視當時臨床忙碌程度而定。" currentVal={formData.q3} onChange={handleChange} />
+                                            <RadioOption name="q3" value="大概不會" label="大概不會：若需主動報名太麻煩，我會放棄。" currentVal={formData.q3} onChange={handleChange} />
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-4">
+                                        <label className="block text-slate-800 font-semibold text-lg">
+                                            4. 您認為哪種制度更能激發住院醫師的研究動力？
+                                        </label>
+                                        <div className="grid gap-3">
+                                            <RadioOption name="q4" value="現行制" label="現行制（自動撈取）：覆蓋率高，醫師壓力小，主要給予肯定。" currentVal={formData.q4} onChange={handleChange} />
+                                            <RadioOption name="q4" value="主動制" label="主動制（自由報名）：競爭動機強，榮譽感較高。" currentVal={formData.q4} onChange={handleChange} />
+                                            <RadioOption name="q4" value="混合制" label="混合制：保留部分自動撈取（普獎），大獎則需主動申請。" currentVal={formData.q4} onChange={handleChange} />
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            {/* Part 3 */}
+                            <section className="bg-white rounded-2xl shadow-xl p-6 md:p-8 card-hover border-t-4 border-emerald-500">
+                                <SectionHeader 
+                                    icon={ScrollText} 
+                                    title="第三部分：行為與學習" 
+                                    subtitle="獎勵是否轉化為未來的研究動能與傳承？"
+                                />
+                                
+                                <div className="space-y-8">
+                                    <div className="space-y-4">
+                                        <label className="block text-slate-800 font-semibold text-lg">
+                                            5. 獲獎後，關於這篇論文的後續計畫？
+                                        </label>
+                                        <div className="grid gap-3">
+                                            <RadioOption name="q5" value="動力增強" label="動力增強：想進一步整理，投稿至 SCI 期刊。" currentVal={formData.q5} onChange={handleChange} />
+                                            <RadioOption name="q5" value="維持原案" label="維持原案：依照原定計畫，不受得獎影響。" currentVal={formData.q5} onChange={handleChange} />
+                                            <RadioOption name="q5" value="任務結束" label="任務結束：階段性任務已完成，不會再繼續處理。" currentVal={formData.q5} onChange={handleChange} />
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-4">
+                                        <label className="block text-slate-800 font-semibold text-lg">
+                                            6. 對於「做研究」這件事，未來的意願變化？
+                                        </label>
+                                        <div className="grid gap-3">
+                                            <RadioOption name="q6" value="投入深耕" label="投入深耕：願嘗試原創性題目，繼續發展。" currentVal={formData.q6} onChange={handleChange} />
+                                            <RadioOption name="q6" value="保持現狀" label="保持現狀：僅為滿足專科要求做必要研究。" currentVal={formData.q6} onChange={handleChange} />
+                                            <RadioOption name="q6" value="排斥/不想" label="排斥/不想：臨床繁重，研究對我而言是負擔。" currentVal={formData.q6} onChange={handleChange} />
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-4">
+                                        <label className="block text-slate-800 font-semibold text-lg">
+                                            7. 您是否願意成為下一輪的「學習節點」（如：指導學弟妹或分享經驗）？
+                                        </label>
+                                        <div className="grid gap-3">
+                                            <RadioOption name="q7" value="非常樂意" label="非常樂意：教學相長，樂於分享。" currentVal={formData.q7} onChange={handleChange} />
+                                            <RadioOption name="q7" value="不排斥" label="不排斥：若教學部有明確安排與引導。" currentVal={formData.q7} onChange={handleChange} />
+                                            <RadioOption name="q7" value="意願不高" label="意願不高：目前想先專注於自身訓練。" currentVal={formData.q7} onChange={handleChange} />
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            {/* Part 4 */}
+                            <section className="bg-white rounded-2xl shadow-xl p-6 md:p-8 card-hover border-t-4 border-indigo-500">
+                                <SectionHeader 
+                                    icon={HandHelping} 
+                                    title="第四部分：回饋與支援" 
+                                    subtitle="從「獎金激勵」轉向「實質戰力升級」"
+                                />
+                                
+                                <div className="space-y-8">
+                                    <div className="space-y-4">
+                                        <label className="block text-slate-800 font-semibold text-lg mb-4">
+                                            8. 若要讓這個獎項更能支持您的研究之路，您最希望增加什麼獎勵？
+                                            <span className="block text-sm text-slate-500 font-normal mt-1">請依照重要性排序 1~4（1 為最重要，4 為最不重要，請勿重複）</span>
+                                        </label>
+                                        
+                                        <div className="grid gap-4 bg-indigo-50/50 p-4 rounded-xl border border-indigo-100">
+                                            {[
+                                                { id: 'q8_1', label: '實質經費：提供小額補助（如投稿費、潤稿費、統計諮詢費）。' },
+                                                { id: 'q8_2', label: '業師指導：安排資深醫師進行一對一的投稿策略指導。' },
+                                                { id: 'q8_3', label: '榮譽曝光：在全院性會議公開表揚或增加院內能見度。' },
+                                                { id: 'q8_4', label: '學術技能：針對獲獎者舉辦專屬的「論文寫作/統計工作坊」。' }
+                                            ].map(item => (
+                                                <div key={item.id} className="flex items-center bg-white p-3 rounded-lg shadow-sm">
+                                                    <div className="mr-4">
+                                                        <label className="text-xs font-bold text-slate-400 block mb-1">排序</label>
+                                                        <input 
+                                                            type="number" 
+                                                            min="1" 
+                                                            max="4" 
+                                                            name={item.id}
+                                                            value={formData[item.id]}
+                                                            onChange={handleChange}
+                                                            className="w-16 h-10 border-2 border-slate-200 rounded-md text-center font-bold text-lg focus:border-indigo-500 focus:outline-none"
+                                                        />
+                                                    </div>
+                                                    <span className="text-slate-700">{item.label}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-4">
+                                        <label className="block text-slate-800 font-semibold text-lg">
+                                            9. 若要讓您「更想做研究」，您最希望醫院優先提供哪項支援？ <span className="text-sm text-rose-500 font-normal">(強迫取捨)</span>
+                                        </label>
+                                        <div className="grid gap-3">
+                                            <RadioOption name="q9" value="時間" label="時間 (Protected Time)：保障研究時段，減少臨床負擔。" currentVal={formData.q9} onChange={handleChange} />
+                                            <RadioOption name="q9" value="技能" label="技能 (Skills)：提供統計諮詢或實用寫作工作坊。" currentVal={formData.q9} onChange={handleChange} />
+                                            <RadioOption name="q9" value="教練" label="教練 (Mentorship)：資深醫師的一對一 Mentor 制度。" currentVal={formData.q9} onChange={handleChange} />
+                                            <RadioOption name="q9" value="經費" label="經費 (Funding)：投稿費、潤稿費等實質補助。" currentVal={formData.q9} onChange={handleChange} />
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            {/* Part 5 */}
+                            <section className="bg-white rounded-2xl shadow-xl p-6 md:p-8 card-hover border-t-4 border-rose-500">
+                                <SectionHeader 
+                                    icon={Lightbulb} 
+                                    title="第五部分：高價值建議" 
+                                    subtitle="您的洞見將協助我們優化制度設計。"
+                                />
+                                
+                                <div className="space-y-8">
+                                    <div className="space-y-3">
+                                        <label className="block text-slate-800 font-semibold text-lg">
+                                            10. <span className="text-rose-600">【關鍵改善】</span>若院方希望明年這個獎項「更能支持您的研究成長」，您最希望優先改善的一件事是什麼？
+                                        </label>
+                                        <textarea 
+                                            name="q10"
+                                            value={formData.q10}
+                                            onChange={handleChange}
+                                            placeholder="請簡述，例如：行政流程、經費項目、時間安排..."
+                                            className="w-full p-4 border border-slate-300 rounded-lg focus:ring-2 focus:ring-rose-200 focus:border-rose-500 min-h-[100px] bg-slate-50 transition-colors"
+                                        ></textarea>
+                                    </div>
+
+                                    <div className="space-y-3">
+                                        <label className="block text-slate-800 font-semibold text-lg">
+                                            11. <span className="text-rose-600">【文化重塑】</span>從您的角度來看，什麼樣的制度設計，最能讓住院醫師「因為想做研究而做」，而不是「因為需要而做」？
+                                        </label>
+                                        <textarea 
+                                            name="q11"
+                                            value={formData.q11}
+                                            onChange={handleChange}
+                                            placeholder="您的觀點將協助我們打破形式主義..."
+                                            className="w-full p-4 border border-slate-300 rounded-lg focus:ring-2 focus:ring-rose-200 focus:border-rose-500 min-h-[120px] bg-slate-50 transition-colors"
+                                        ></textarea>
+                                    </div>
+                                </div>
+                            </section>
+
+                            {/* Footer & Submit */}
+                            <div className="text-center pt-8">
+                                <button 
+                                    type="submit" 
+                                    disabled={isSubmitting}
+                                    className={`group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 font-pj rounded-full shadow-lg w-full md:w-auto
+                                        ${isSubmitting 
+                                            ? 'bg-slate-400 cursor-not-allowed' 
+                                            : 'bg-blue-900 hover:bg-blue-800 hover:shadow-blue-900/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900'
+                                        }`}
+                                >
+                                    {isSubmitting ? (
+                                        <span className="flex items-center">
+                                            <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                            </svg>
+                                            資料傳送中...
+                                        </span>
+                                    ) : (
+                                        <>
+                                            <span>提交回饋問卷</span>
+                                            <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                                        </>
+                                    )}
+                                </button>
+                                <p className="mt-6 text-slate-400 text-sm">
+                                    本問卷採匿名處理，請放心填答。<br/>
+                                    教學部 住院醫師組
+                                </p>
+                            </div>
+
+                        </form>
+                    </main>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
